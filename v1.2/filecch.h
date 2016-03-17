@@ -13,12 +13,12 @@
 #define ARRAYSIZE 51
 #define CHARCOUNT 7
 #define ERROR -1
-#define DEBUG 0
-#define DEBUG_ERR_HNDL 0
-#define DEBUG_MAIN 0
-#define DEBUG_FILE_STAT 0
-#define DEBUG_GRAPH_PR 0
-#define DEBUG_TERM_SIZE 0
+#define DEBUG 0 //all debugs
+#define DEBUG_ERR_HNDL 0 //debug only error_hndl.c
+#define DEBUG_MAIN 0 //debug only filecharcount.c
+#define DEBUG_FILE_STAT 0 //debug only file_stat.c
+#define DEBUG_GRAPH_PR 0 //debug only graph_pr.c
+#define DEBUG_TERM_SIZE 0 //debug only term_size.c
 
 
 //file_stat.c
@@ -28,8 +28,6 @@ int lettersumarrayfiller(void);
 void stat_num(void);
 void start_of_word(void);
 void end_of_word(void);
-
-//?????
 float avrcalc(void);
 //error_handl.c
 int file_open_error(void);

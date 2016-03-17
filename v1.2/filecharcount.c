@@ -10,8 +10,8 @@
 
 int main()
 {
-	//init global var
-	space=0; word=0; nl=0; letter=0;wordletternum=0;i=0;sum=0;actual_char=' ',previous_char='\0',inword_toggle=0;
+//init global var
+	space=0; word=0; nl=0; letter=0;wordletternum=0;i=0;sum=0;actual_char='\0',previous_char=' ',inword_toggle=0,character=0,punct=0;
    
     setlocale(LC_ALL,"hun_HU.UTF-8");  //doesn't work check why
 
@@ -23,7 +23,7 @@ int main()
     {
         if(eerror()==ERROR)
         {
-			if(DEBUG)
+			if(DEBUG || DEBUG_MAIN)
 			{
         		printf("%c",actual_char);
         		printf("\tvalue is=%d\n",actual_char);
@@ -32,17 +32,24 @@ int main()
             return ERROR;
         }
 		
-// TO-DO: Try to add non-letters seperatly
+//count punctuation
+		if(ispunct(actual_char))
+		{
+			punct++;
+		}
+//count letters
         if(isalpha(actual_char))
         {
             letter++;
         }
         else
         {
+//count white spaces
             if(ifspace()==1)
             {
                 space++;
             }
+//count newlines
             if(ifnl()==1)
             {
                 nl++;
@@ -50,7 +57,7 @@ int main()
         }
 		start_of_word();
 		end_of_word();
-        //adds one to wordletternum value if still in word or resets counter if not
+//adds one to wordletternum value if still in word or resets counter if not
         if(inword_toggle==1)
         {
             wordletternum++;
@@ -59,8 +66,13 @@ int main()
         {
             wordletternum=0;
         }
+		if(DEBUG || DEBUG_MAIN)
+		{
+			printf("%c",actual_char);
+		}
         previous_char=actual_char;
     }
+	character=punct+letter;
     lettersumarrayfiller();
     fclose(txt);
     avrcalc();
