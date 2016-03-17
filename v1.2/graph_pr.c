@@ -18,7 +18,7 @@ float onepercent()
 }
 
 //tells you how long each element of the graph should be
-int make_graph()
+void make_graph()
 {
     int j,k,total=0,graph_string_toggle=0;
     float graph_i_length[ARRAYSIZE],a=0;

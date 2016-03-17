@@ -1,5 +1,5 @@
-#ifndef head_H_
-#define head_H_
+#ifndef filecch_H_
+#define filecch_H_
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,7 +14,6 @@
 #define CHARCOUNT 7
 #define ERROR -1
 #define DEBUG 1
-
 
 //file_stat.c
 int ifspace();
@@ -34,6 +33,6 @@ int term_win_size();
 int display_size();
 //graph_pr.c
 float onepercent();
-void make_graph();
+int make_graph();
 
 #endif

@@ -7,11 +7,6 @@
  *                                                        *
  **********************************************************/
 
-int space=0, word=0, nl=0, letter=0,letternumsum[ARRAYSIZE],wordletternum=0,i=0,sum=0;
-char actual_char=' ';
-float rounded_graph_length[ARRAYSIZE];
-FILE *txt;
-
 int main()
 {
     int inword_toggle=0;
@@ -27,7 +22,7 @@ int main()
     {
         if(eerror()==ERROR)
         {
-            qerror();
+            eerror();
             return ERROR;
         }
 		if(DEBUG)
@@ -110,8 +105,8 @@ int main()
     make_graph();
 	if(DEBUG)
 	{
-		printf("terminal width is:%d",term_win_size());     
-		printf("1 percent is:%.3f\n",onepercent()); 
+		printf("terminal width is:%d",term_win_size());
+		printf("1 percent is:%.3f\n",onepercent());
     	printf("display size is %d\n",display_size());
 	}
     return 0;
