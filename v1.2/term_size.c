@@ -1,4 +1,5 @@
 #include "filecch.h"
+#include "fccgvar.h"
 
 /**********************************************************
  *                                                        *
@@ -12,7 +13,7 @@ int term_win_size()
 {
     struct winsize w;
     ioctl(0, TIOCGWINSZ, &w);
-	if(DEBUG)
+	if(DEBUG || DEBUG_TERM_SIZE)
 	{
 	    printf ("lines %d\n", w.ws_row);
 	    printf ("columns %d\n", w.ws_col);

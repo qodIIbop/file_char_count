@@ -1,4 +1,5 @@
 #include "filecch.h"
+#include "fccgvar.h"
 
 /**********************************************************
  *                                                        *
@@ -33,13 +34,13 @@ void make_graph()
     {
         if(letternumsum[i]!=0)
         {
-			if(DEBUG)
+			if(DEBUG || DEBUG_GRAPH_PR)
 			{
 	            printf("letternumsum[%d]\n",i);
 			}
             graph_i_length[j]=a*letternumsum[i]*onepercent(); //better algorithum for better ratio calculation
             rounded_graph_length[j]=roundf(graph_i_length[j]);
-			if(DEBUG)
+			if(DEBUG || DEBUG_GRAPH_PR)
 			{
 	            printf("The number of \"=\" in %d letter words is %.2f\n",i,rounded_graph_length[j]);
 			}
@@ -78,7 +79,7 @@ void make_graph()
 //increase the index of letternumsum by 1
         i++;
     }
-	if(DEBUG)
+	if(DEBUG || DEBUG_GRAPH_PR)
 	{
 	    printf("total=%d\n",total);
 	}
