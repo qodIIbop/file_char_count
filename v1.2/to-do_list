@@ -4,4 +4,4 @@ seperate debug function for debug messages
 Scaling uses whole of the terminal space
 Statistic in one line using %-(x)s x=constant char
 make commenting more understandable
-
+use github version controll
