@@ -74,7 +74,7 @@ int main()
     }
 	character=punct+letter;
     lettersumarrayfiller();
-    fclose(txt);
+    fclose(txt); //add close error
     avrcalc();
     term_win_size();
     onepercent();

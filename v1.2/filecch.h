@@ -20,7 +20,6 @@
 #define DEBUG_GRAPH_PR 0 //debug only graph_pr.c
 #define DEBUG_TERM_SIZE 0 //debug only term_size.c
 
-
 //file_stat.c
 int ifspace(void);
 int ifnl(void);
@@ -29,12 +28,15 @@ void stat_num(void);
 void start_of_word(void);
 void end_of_word(void);
 float avrcalc(void);
+
 //error_handl.c
 int file_open_error(void);
 int eerror(void);
+
 //term_size.c
 int term_win_size(void);
 int display_size(void);
+
 //graph_pr.c
 float onepercent(void);
 void make_graph(void);

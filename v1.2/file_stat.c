@@ -41,12 +41,12 @@ int lettersumarrayfiller()
     {
         if(i==wordletternum)
         {
-            letternumsum[i]=letternumsum[i]+1;
+			letternumsum[i]++;
             return 0;
         }
         if(wordletternum>(ARRAYSIZE-1))
         {
-            letternumsum[ARRAYSIZE-1]=letternumsum[ARRAYSIZE-1]+1;
+            letternumsum[ARRAYSIZE-1]++;
             return 0;
         }
     }
@@ -113,37 +113,25 @@ float avrcalc()
 //display the statistics in non-graphical form
 void stat_num()
 {
-//	int letter_indent=0,word_indent=0,space_indent=0,nl_indent=0;  //needed for var character indent (if possible)
 	//getting the correct number of indents for numbers to be aligned
 	if(DEBUG || DEBUG_FILE_STAT)
 	{	
 		printf("\n");
 	}
-	if(character>100)
-	{
-    	printf("The number of characters: %d\n",character);
-	}
-	else if(character<100 && character>10)
-	{
-		printf("The number of characters: %d\n",character);
-	}
-	else
-	{
-		printf("The number of characters: %d\n",character);
-	}
-
-	if(letter>100)
-	{
-    	printf("The number of letters: %6d\n",letter);
-	}
-	else if(letter<100 && letter>10)
+    printf("The number of characters: %d\n",character);
+letter=1;
+/*	if(letter>100)
+	{*/
+    	printf("%-30s %6d\n","The number of letters:",letter);
+//	}
+/*	else if(letter<100 && letter>10)
 	{
 		printf("The number of letters: %5d\n",letter);
 	}
 	else
 	{
 		printf("The number of letters: %4d\n",letter);
-	}
+	}*/
 
 	if(word>100)
 	{
