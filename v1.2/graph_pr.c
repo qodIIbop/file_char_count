@@ -1,18 +1,21 @@
 #include "filecch.h"
-#include "fccgvar.h"
+#include "graphpr.h"
 
-/**********************************************************
- *                                                        *
- *                 Author: qodbop                         *
- *  Creates the graph from the statistics in a terminal   *
- *                Responsive resizing                     *
- *                                                        *
- **********************************************************/
+/*************************************************************************************
+ *                                                                                   *
+ * Author: qodbop                                                                    *
+ * Creates the graph from the statistics in a terminal                               *
+ * Responsive resizing                                                               *
+ * Statistics shown in graphical form: how many of each length word is in input file *
+ * lenght=letter count                                                               *
+ *                                                                                   *
+ *************************************************************************************/
 
+//FIXME: Make longest line=100% of displaysize
 //calculate 1% of the sum
 float onepercent()
 {
-    float percent=0;
+    float percent=0.0;
 
     percent=(float)display_size()/100;
     return percent;
@@ -25,7 +28,8 @@ void make_graph()
     float graph_i_length[ARRAYSIZE],a=0;
 
     i=0;
-    a=(float)display_size()/sum; //should be a seperate function
+//FIXME: //should be a seperate function
+    a=(float)display_size()/sum;
 	if(DEBUG)
 	{
 	    printf("a=%.3f\n",a);
@@ -38,7 +42,7 @@ void make_graph()
 			{
 	            printf("letternumsum[%d]\n",i);
 			}
-            graph_i_length[j]=a*letternumsum[i]*onepercent(); //better algorithum for better ratio calculation
+            graph_i_length[j]=a*letternumsum[i]*onepercent();
             rounded_graph_length[j]=roundf(graph_i_length[j]);
 			if(DEBUG || DEBUG_GRAPH_PR)
 			{
@@ -76,7 +80,7 @@ void make_graph()
                 }
             }
         }
-//increase the index of letternumsum by 1
+//increment the index of letternumsum
         i++;
     }
 	if(DEBUG || DEBUG_GRAPH_PR)

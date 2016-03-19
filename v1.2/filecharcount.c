@@ -1,21 +1,26 @@
 #include "filecch.h"
-#include "fccgvar.h"
+#include "filecharcount.h"
 
-/**********************************************************
- *                                                        *
- *                 Author: qodbop                         *
- *  Reads the input of a txt file and reports statistics  *
- *                                                        *
- **********************************************************/
+/***************************************************************************************
+ *                                                                                     *
+ * Author: qodbop                                                                      *
+ * Reads the input of a txt file and reports statistics                                *
+ * Statistics reported: letter, punctuation, character, word, space, nl count          *
+ * All calls a function that displays a graphical bar chart of the amount of each word *
+ * accourding to its letter count                                                      *
+ *                                                                                     *
+ ***************************************************************************************/
 
 int main()
 {
 //init global var
 	space=0; word=0; nl=0; letter=0;wordletternum=0;i=0;sum=0;actual_char='\0',previous_char=' ',inword_toggle=0,character=0,punct=0;
    
-    setlocale(LC_ALL,"hun_HU.UTF-8");  //doesn't work check why
+//FIXME:get ekezet to work
+    setlocale(LC_ALL,"hun_HU.UTF-8");
 
-    txt=fopen("test04.txt","r");      //try to make this dymanic not burned in
+//TODO:make dynamic (argc,argv[])
+    txt=fopen("test04.txt","r");
 
 	file_open_error();
 
@@ -32,24 +37,24 @@ int main()
             return ERROR;
         }
 		
-//count punctuation
+//counts number of punctuation in the file
 		if(ispunct(actual_char))
 		{
 			punct++;
 		}
-//count letters
+//counts number of letters in the file
         if(isalpha(actual_char))
         {
             letter++;
         }
         else
         {
-//count white spaces
+//counts number of spaces in the file
             if(ifspace()==1)
             {
                 space++;
             }
-//count newlines
+//counts number of enters in the file
             if(ifnl()==1)
             {
                 nl++;
@@ -57,7 +62,7 @@ int main()
         }
 		start_of_word();
 		end_of_word();
-//adds one to wordletternum value if still in word or resets counter if not
+//increments wordletternum if still in word or resets counter if not
         if(inword_toggle==1)
         {
             wordletternum++;
@@ -74,7 +79,8 @@ int main()
     }
 	character=punct+letter;
     lettersumarrayfiller();
-    fclose(txt); //add close error
+//TODO: add check for close error of all functions
+    fclose(txt);
     avrcalc();
     term_win_size();
     onepercent();
@@ -82,8 +88,8 @@ int main()
     make_graph();
 	if(DEBUG || DEBUG_MAIN)
 	{
-		printf("terminal width is:%d",term_win_size());
-		printf("1 percent is:%.3f\n",onepercent());
+		printf("terminal width is:%d\n",term_win_size());
+		printf("1 percent is:%f\n",onepercent());
     	printf("display size is %d\n",display_size());
 	}
     return 0;

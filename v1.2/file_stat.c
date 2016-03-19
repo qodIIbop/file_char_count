@@ -1,12 +1,15 @@
 #include "filecch.h"
-#include "fccgvar.h"
+#include "filestat.h"
 
-/**********************************************************
- *                                                        *
- *                 Author: qodbop                         *
- *  Creates all the statistics needed for the prog        *
- *                                                        *
- **********************************************************/
+/*******************************************************
+ *                                                     *
+ * Author: qodbop                                      *
+ * Author created isfunctions                          *
+ * Checks if at start or end of word                   *
+ * Statistic functions: nl, space, word, average count *
+ * Displays statistics in non-graphical form           *
+ *                                                     *
+ *******************************************************/
 
 //if the actual char is a space returns with 1, if not returns with 0
 int ifspace()
@@ -34,7 +37,10 @@ int ifnl()
     }
 }
 
-//fill an array with how many words are in the text with that number of letters
+/*fills an array with numbers
+  index represents the length of the word
+  and the value of the array row give the amount of words with that length in the input file
+*/
 int lettersumarrayfiller()
 {
     for(i=1;i<ARRAYSIZE;i++)
@@ -55,7 +61,8 @@ int lettersumarrayfiller()
 //sets inword_toggle to 1 if at start of word
 void start_of_word()
 {
-	if( isalpha(actual_char) && (isspace(previous_char) || ispunct(previous_char)))
+//	if(isalpha(actual_char) && (isspace(previous_char) || ispunct(previous_char)))
+	if(isalpha(actual_char) && inword_toggle==0)
     {
 		if(DEBUG || DEBUG_FILE_STAT)
 		{
@@ -113,7 +120,8 @@ float avrcalc()
 //display the statistics in non-graphical form
 void stat_num()
 {
-	//getting the correct number of indents for numbers to be aligned
+//TODO: use constant char strings instead of if() (example line133)
+//getting the correct number of indents for numbers to be aligned
 	if(DEBUG || DEBUG_FILE_STAT)
 	{	
 		printf("\n");
@@ -122,6 +130,7 @@ void stat_num()
 letter=1;
 /*	if(letter>100)
 	{*/
+//TODO: No magic constants (use CHARCOUNT)
     	printf("%-30s %6d\n","The number of letters:",letter);
 //	}
 /*	else if(letter<100 && letter>10)

@@ -1,7 +1,7 @@
 individual header file for each c file
-argv,argc for dymanic input file
-seperate debug function for debug messages
-Scaling uses whole of the terminal space
-Statistic in one line using %-(x)s x=constant char
 make commenting more understandable
+seperate debug function for debug messages
+Statistic in one line using %-(x)s x=constant char
+argv,argc for dymanic input file
+Scaling uses whole of the terminal space
 use github version controll

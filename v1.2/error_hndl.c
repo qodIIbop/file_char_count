@@ -1,14 +1,16 @@
 #include "filecch.h"
 #include "fccgvar.h"
+#include "errhndl.h"
 
-/**********************************************************
- *                                                        *
- *                 Author: qodbop                         *
- *                 Error handling                         *
- *                                                        *
- **********************************************************/
+ /******************
+  *                *
+  * Author: qodbop *
+  * Error handling *
+  *                *
+  ******************/
 
-//if file cannot be opened display error message why
+//if file cannot be opened display error code why
+//TODO: Write out error message not just error code
 int file_open_error()
 {
 	if(txt==0)
@@ -27,5 +29,5 @@ int eerror()
     }
     return 0;
 }
-//TO-DO: Write out error message not just error code
-//TO-DO: More error handling???
+
+//TODO: More error handling???
