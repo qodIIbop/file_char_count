@@ -1,5 +1,5 @@
-individual header file for each c file
-make commenting more understandable
+individual header file for each c file *
+make commenting more understandable *
 seperate debug function for debug messages
 Statistic in one line using %-(x)s x=constant char
 argv,argc for dymanic input file

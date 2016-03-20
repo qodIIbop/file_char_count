@@ -2,7 +2,6 @@
 #define filecharcount_H_INCLUDED
 
 #include "filecch.h"
-#include "fccgvar.h"
 #include <locale.h>
 
 

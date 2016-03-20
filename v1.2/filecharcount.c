@@ -14,7 +14,18 @@
 int main()
 {
 //init global var
-	space=0; word=0; nl=0; letter=0;wordletternum=0;i=0;sum=0;actual_char='\0',previous_char=' ',inword_toggle=0,character=0,punct=0;
+	space=0;
+	word=0;
+	nl=0;
+	letter=0;
+	wordletternum=0;
+	i=0;
+	sum=0;
+	actual_char='\0';
+	previous_char=' ';
+	inword_toggle=0;
+	character=0;
+	punct=0;
    
 //FIXME:get ekezet to work
     setlocale(LC_ALL,"hun_HU.UTF-8");
@@ -28,6 +39,7 @@ int main()
     {
         if(eerror()==ERROR)
         {
+			debug_filecharcount("",1,(char)actual_char);
 			if(DEBUG || DEBUG_MAIN)
 			{
         		printf("%c",actual_char);

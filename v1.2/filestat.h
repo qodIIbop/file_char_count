@@ -2,7 +2,6 @@
 #define filestat_H_INCLUDED
 
 #include "filecch.h"
-#include "fccgvar.h"
 #include <ctype.h>
 
 #define DEBUG_FILE_STAT 0 //debug only file_stat.c
